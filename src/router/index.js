@@ -13,14 +13,19 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: {
-      requiresAuth: true,
-    },
+    // meta: {
+    //   requiresAuth: true,
+    // },
   },
   {
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/rooms',
+    name: 'Rooms',
+    component: () => import(/* webpackChunkName: "rooms" */ '../views/Rooms/Rooms.vue'),
   },
 ];
 

@@ -6,6 +6,8 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
+store.dispatch('rooms/init');
+
 new Vue({
   router,
   store,
