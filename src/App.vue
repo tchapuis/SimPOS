@@ -1,9 +1,6 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/rooms">Rooms</router-link>
-    </div>
+  <div id="app" class="flex flex-row">
+    <navbar></navbar>
     <router-view/>
   </div>
 </template>
@@ -11,3 +8,10 @@
 <style>
 
 </style>
+<script>
+import Navbar from '@/components/Navbar.vue';
+
+export default {
+  components: { Navbar },
+};
+</script>
