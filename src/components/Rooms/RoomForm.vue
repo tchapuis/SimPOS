@@ -1,20 +1,20 @@
 <template>
   <form id="room-form" @submit.prevent="addRoom">
-    <div>
-      <label for="room-name">Nom de la salle</label>
-      <input type="text" name="room-name" id="room-name" v-model="currentRoom.name">
+    <div class="mb-4">
+      <label for="room-name" class="block mb-4">Nom de la salle</label>
+      <input type="text" name="room-name" id="room-name" placeholder="Nom" v-model="currentRoom.name" required class="w-full py-2 px-2 border-b appearance-none bg-transparent focus:outline-none focus:border-orange-600">
     </div>
-    <div>
-      <label for="room-description">Description de la salle</label>
-      <textarea name="room-description" id="room-description" rows="10" v-model="currentRoom.description"></textarea>
+    <div class="mb-4">
+      <label for="room-description" class="block mb-4">Description de la salle</label>
+      <textarea name="room-description" id="room-description" placeholder="Description" rows="10" v-model="currentRoom.description" required class="w-full py-2 px-2 border-b appearance-none bg-transparent focus:outline-none focus:border-orange-600"></textarea>
     </div>
-    <div>
-      <label for="room-size">Nombre de places dans la salle</label>
-      <input type="number" name="room-size" id="room-size" min="0" v-model="currentRoom.size">
+    <div class="mb-4">
+      <label for="room-size" class="block mb-4">Nombre de places dans la salle</label>
+      <input type="number" name="room-size" id="room-size" min="0" v-model="currentRoom.size" required class="w-full py-2 px-2 border-b appearance-none bg-transparent focus:outline-none focus:border-orange-600">
     </div>
-    <div>
-      <button type="reset" @click="reset">Annuler</button>
-      <button type="submit">Ajouter</button>
+    <div class="flex justify-between py-4">
+      <button type="reset" @click="reset" class="hover:text-orange-500 focus:outline-none">Annuler</button>
+      <button type="submit" class="bg-orange-600 flex py-2 px-4 text-white shadow hover:bg-orange-500 focus:outline-none">Ajouter</button>
     </div>
   </form>
 </template>
@@ -26,7 +26,7 @@ export default {
   name: 'RoomForm',
   methods: {
     async addRoom() {
-      if (this.currentRoom.question !== '' && this.currentRoom.answer !== '') {
+      if (this.currentRoom.name !== '' && this.currentRoom.description !== '') {
         if (!this.currentRoom.id) {
           await this.$store.dispatch('rooms/add', this.currentRoom);
         }
@@ -35,6 +35,7 @@ export default {
     },
     reset() {
       this.$store.commit('rooms/resetEdit');
+      this.$router.push({ name: 'Rooms' });
     },
   },
   computed: {

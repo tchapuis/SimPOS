@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="flex flex-row">
+  <div id="app" class="h-screen flex flex-col sm:flex-row">
     <navbar></navbar>
-    <router-view/>
+    <router-view class="w-full p-16"/>
   </div>
 </template>
 

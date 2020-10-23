@@ -24,8 +24,19 @@ const routes = [
   },
   {
     path: '/rooms',
-    name: 'Rooms',
     component: () => import(/* webpackChunkName: "rooms" */ '../views/Rooms/Rooms.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Rooms',
+        component: () => import(/* webpackChunkName: "roomsList" */ '../components/Rooms/RoomList'),
+      },
+      {
+        path: 'new',
+        name: 'NewRooms',
+        component: () => import(/* webpackChunkName: "roomsForm" */ '../components/Rooms/RoomForm'),
+      },
+    ],
   },
 ];
 
