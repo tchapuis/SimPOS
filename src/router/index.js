@@ -23,6 +23,11 @@ const routes = [
     component: Login,
   },
   {
+    path: '/events',
+    name: 'Events',
+    component: () => import(/* webpackChunkName: "events" */ '../views/Events/Events.vue'),
+  },
+  {
     path: '/rooms',
     component: () => import(/* webpackChunkName: "rooms" */ '../views/Rooms/Rooms.vue'),
     children: [

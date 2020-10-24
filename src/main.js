@@ -8,6 +8,7 @@ import store from './store';
 Vue.config.productionTip = false;
 
 store.dispatch('rooms/init');
+store.dispatch('events/init');
 
 new Vue({
   router,
