@@ -3,7 +3,7 @@ import { db } from '@/utils/firebase';
 const collectionName = 'rooms';
 
 const model = {
-  id: null, name: '', description: '', size: 0, createdAt: null, user: null,
+  id: null, name: '', description: '', size: 0, createdAt: null, user: null, color: '#dd6b20',
 };
 
 export default {
@@ -45,6 +45,7 @@ export default {
           size: payload.size,
           createdAt: Date.now(),
           user: rootState.users.user,
+          color: payload.color,
         });
     },
   },

@@ -12,6 +12,10 @@
       <label for="room-size" class="block mb-4">Nombre de places dans la salle</label>
       <input type="number" name="room-size" id="room-size" min="0" v-model="currentRoom.size" required class="w-full py-2 px-2 border-b appearance-none bg-transparent focus:outline-none focus:border-orange-600">
     </div>
+    <div class="mb-4">
+      <label for="room-color" class="block mb-4">Couleur de la salle</label>
+      <input type="color" name="room-color" id="room-color" v-model="currentRoom.color" required class="w-full h-8 px-2 border-b appearance-none bg-transparent focus:outline-none focus:border-orange-600">
+    </div>
     <div class="flex justify-between py-4">
       <button type="reset" @click="reset" class="hover:text-orange-500 focus:outline-none">Annuler</button>
       <button type="submit" class="bg-orange-600 flex py-2 px-4 text-white shadow hover:bg-orange-500 focus:outline-none">Ajouter</button>
