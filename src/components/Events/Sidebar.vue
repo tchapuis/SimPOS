@@ -1,10 +1,9 @@
 <template>
   <div class="calendar-sidebar">
     <section>
-      <h2>Salles</h2>
-
-      <div ref="drag">
-        <div v-for="room in rooms" :key="room.id" class="room bg-orange-600 border border-gray-700 mb-2 cursor-move" :data-event="JSON.stringify({ title: room.name, id: room.id, create: false })">
+      <h2 class="mb-2">Salles disponibles</h2>
+      <div ref="drag" class="flex flex-wrap">
+        <div v-for="room in rooms" :key="room.id" class="room p-2 mb-2 bg-orange-600 cursor-move rounded w-1/4 mr-2" :style="{backgroundColor: room.color}" :data-event="JSON.stringify({ title: room.name, id: room.id, create: false })">
           <i>{{ room.name }}</i>
         </div>
       </div>

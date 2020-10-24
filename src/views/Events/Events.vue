@@ -1,6 +1,9 @@
 <template>
   <div>
-    <calendar-sidebar></calendar-sidebar>
+    <div class="mb-6 flex justify-between items-center">
+      <h1 class="text-3xl">Planning</h1>
+    </div>
+    <calendar-sidebar class="mb-8"></calendar-sidebar>
     <FullCalendar :options="configOptions"></FullCalendar>
   </div>
 
