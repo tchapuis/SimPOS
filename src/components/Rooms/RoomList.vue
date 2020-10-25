@@ -8,7 +8,7 @@
         <span>Ajouter</span>
       </router-link>
     </div>
-    <table class="table-auto w-full text-left">
+    <table class="w-full text-left">
       <thead class="text-gray-500">
         <tr>
           <th class="py-3">Name</th>
@@ -23,8 +23,8 @@
           <td class="py-3">{{ room.size }}</td>
           <td class="py-3">{{ room.size }}</td>
           <td class="py-3">
-            <button>Edit</button>
-            <button>Delete</button>
+            <button @click="editRoom(room)" class="bg-orange-600 mr-2 py-1 px-2 text-white shadow hover:bg-orange-500 focus:outline-none">Editer</button>
+            <button @click="deleteRoom(room)" class="bg-red-600 py-1 px-2 text-white shadow hover:bg-red-500 focus:outline-none">Supprimer</button>
           </td>
         </tr>
       </tbody>
@@ -37,6 +37,20 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'RoomList',
+  methods: {
+    editRoom(room) {
+      this.$store.commit('rooms/setEdit', room);
+      this.$router.replace({ name: 'EditRooms' });
+    },
+    deleteRoom(room) {
+      const confirm = window.confirm(`Veuillez confirmer la suppression de la salle ${room.name}`);
+      if (!confirm) {
+        return;
+      }
+
+      this.$store.dispatch('rooms/delete', room.id);
+    },
+  },
   computed: {
     ...mapState({
       rooms: (state) => state.rooms.rooms,

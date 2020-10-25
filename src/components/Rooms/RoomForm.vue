@@ -18,7 +18,10 @@
     </div>
     <div class="flex justify-between py-4">
       <button type="reset" @click="reset" class="hover:text-orange-500 focus:outline-none">Annuler</button>
-      <button type="submit" class="bg-orange-600 flex py-2 px-4 text-white shadow hover:bg-orange-500 focus:outline-none">Ajouter</button>
+      <button type="submit" class="bg-orange-600 flex py-2 px-4 text-white shadow hover:bg-orange-500 focus:outline-none">
+        <span v-if="isEditionMode">Editer</span>
+        <span v-else>Ajouter</span>
+      </button>
     </div>
   </form>
 </template>
@@ -32,6 +35,8 @@ export default {
     async addRoom() {
       if (this.currentRoom.name !== '' && this.currentRoom.description !== '') {
         if (!this.currentRoom.id) {
+          await this.$store.dispatch('rooms/add', this.currentRoom);
+        } else {
           await this.$store.dispatch('rooms/add', this.currentRoom);
         }
         this.reset();
@@ -49,6 +54,11 @@ export default {
     isEditionMode() {
       return this.currentRoom.id !== null;
     },
+  },
+  beforeCreate() {
+    if (this.$route.name === 'EditRooms' && !this.isEditionMode) {
+      this.$router.replace({ name: 'NewRooms' });
+    }
   },
 };
 </script>

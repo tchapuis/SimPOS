@@ -48,5 +48,24 @@ export default {
           color: payload.color,
         });
     },
+    async edit({ rootState }, payload) {
+      await db
+        .collection(collectionName)
+        .doc(payload.id)
+        .update({
+          name: payload.name,
+          description: payload.description,
+          size: payload.size,
+          createdAt: Date.now(),
+          user: rootState.users.user,
+          color: payload.color,
+        });
+    },
+    async delete(state, id) {
+      await db
+        .collection(collectionName)
+        .doc(id)
+        .delete();
+    },
   },
 };

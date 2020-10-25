@@ -41,6 +41,11 @@ const routes = [
         name: 'NewRooms',
         component: () => import(/* webpackChunkName: "roomsForm" */ '../components/Rooms/RoomForm'),
       },
+      {
+        path: 'edit',
+        name: 'EditRooms',
+        component: () => import(/* webpackChunkName: "roomsForm" */ '../components/Rooms/RoomForm'),
+      },
     ],
   },
 ];
