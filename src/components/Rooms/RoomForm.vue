@@ -55,7 +55,7 @@ export default {
       return this.currentRoom.id !== null;
     },
   },
-  beforeCreate() {
+  created() {
     if (this.$route.name === 'EditRooms' && !this.isEditionMode) {
       this.$router.replace({ name: 'NewRooms' });
     }

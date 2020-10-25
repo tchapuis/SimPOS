@@ -27,7 +27,7 @@ export default {
   methods: {
     editEvent({ event }) {
       const payload = {
-        id: event.id, start: event.startStr, end: event.endStr, room: event.id, title: event.title,
+        id: event.id, start: event.startStr, end: event.endStr, room: event.extendedProps.room, title: event.title,
       };
       this.$store.dispatch('events/edit', payload);
     },
@@ -41,7 +41,7 @@ export default {
     handleDrop(arg) {
       const event = JSON.parse(arg.draggedEl.dataset.event);
       const payload = {
-        start: arg.dateStr, end: null, room: event.id, title: event.title,
+        start: arg.dateStr, end: null, room: event.id, title: event.title, color: event.color,
       };
 
       this.$store.dispatch('events/add', payload);
@@ -73,6 +73,10 @@ export default {
         eventClick: this.deleteEvent,
         drop: this.handleDrop,
         events: this.events,
+        eventColor: '#dd6b20',
+        eventOverlap(stillEvent, movingEvent) {
+          return stillEvent.extendedProps.room !== movingEvent.extendedProps.room;
+        },
       };
     },
   },

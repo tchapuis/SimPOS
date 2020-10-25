@@ -32,6 +32,7 @@ export default {
           start: payload.start,
           end: payload.end,
           room: payload.room,
+          color: payload.color,
           user: rootState.users.user,
         });
     },
