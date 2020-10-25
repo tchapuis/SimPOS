@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <div class="mb-6 flex justify-between items-center">
       <h1 class="text-3xl">Planning</h1>
     </div>
@@ -83,6 +83,27 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+  .fc .fc-button, .fc .fc-button-primary {
+    @apply bg-orange-600 border-orange-600 rounded;
+  }
+  .fc .fc-button-primary:disabled {
+    @apply bg-orange-500 border-orange-500;
+  }
 
+  .fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active {
+    @apply bg-orange-500 border-orange-500;
+  }
+
+  .fc .fc-button:hover {
+    @apply bg-orange-500 border-orange-500;
+  }
+
+  .fc .fc-button-primary:not(:disabled).fc-button-active {
+    @apply bg-orange-700 border-orange-700;
+  }
+
+  .fc .fc-button-primary:focus, .fc .fc-button-primary:not(:disabled):active:focus, .fc .fc-button-primary:not(:disabled).fc-button-active:focus {
+    @apply outline-none shadow-none;
+  }
 </style>
