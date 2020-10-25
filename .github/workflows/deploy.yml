@@ -2,8 +2,6 @@ name: Build and deploy to Firebase Hosting
 on:
     push:
         branches: [ prod ]
-    pull_request:
-        branches: [ prod ]
 jobs:
     build:
         runs-on: ubuntu-latest
