@@ -13,9 +13,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    // meta: {
-    //   requiresAuth: true,
-    // },
   },
   {
     path: '/login',
@@ -26,25 +23,40 @@ const routes = [
     path: '/events',
     name: 'Events',
     component: () => import(/* webpackChunkName: "events" */ '../views/Events/Events.vue'),
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/rooms',
     component: () => import(/* webpackChunkName: "rooms" */ '../views/Rooms/Rooms.vue'),
+    meta: {
+      requiresAuth: true,
+    },
     children: [
       {
         path: '',
         name: 'Rooms',
         component: () => import(/* webpackChunkName: "roomsList" */ '../components/Rooms/RoomList'),
+        meta: {
+          requiresAuth: true,
+        },
       },
       {
         path: 'new',
         name: 'NewRooms',
         component: () => import(/* webpackChunkName: "roomsForm" */ '../components/Rooms/RoomForm'),
+        meta: {
+          requiresAuth: true,
+        },
       },
       {
         path: 'edit',
         name: 'EditRooms',
         component: () => import(/* webpackChunkName: "roomsForm" */ '../components/Rooms/RoomForm'),
+        meta: {
+          requiresAuth: true,
+        },
       },
     ],
   },

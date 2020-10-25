@@ -5,6 +5,12 @@ export default {
   state: {
     user: null,
   },
+  getters: {
+    isConnected(state) {
+      const cuser = state.user; // state is empty until accessed
+      return (auth.currentUser !== null && cuser !== null);
+    },
+  },
   mutations: {
     setCurrentUser(state, user) {
       state.user = user;
