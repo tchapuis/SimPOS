@@ -11,16 +11,14 @@
     <table class="w-full text-left">
       <thead class="text-gray-500">
         <tr>
-          <th class="py-3">Name</th>
-          <th class="py-3">Size</th>
-          <th class="py-3">status</th>
+          <th class="py-3">Nom de la salle</th>
+          <th class="py-3">Taille</th>
           <th class="py-3"></th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="room in rooms" :key="room.id">
           <td class="py-3">{{ room.name }}</td>
-          <td class="py-3">{{ room.size }}</td>
           <td class="py-3">{{ room.size }}</td>
           <td class="py-3">
             <button @click="editRoom(room)" class="bg-orange-600 mr-2 py-1 px-2 text-white shadow hover:bg-orange-500 focus:outline-none">Editer</button>
