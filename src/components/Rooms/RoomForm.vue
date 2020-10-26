@@ -18,7 +18,7 @@
     </div>
     <div class="flex justify-between py-4">
       <button type="reset" @click="reset" class="hover:text-orange-500 focus:outline-none">Annuler</button>
-      <button type="submit" class="bg-orange-600 flex py-2 px-4 text-white shadow hover:bg-orange-500 focus:outline-none">
+      <button type="submit" class="bg-orange-600 flex py-2 px-4 text-white shadow hover:bg-orange-500 focus:outline-none rounded">
         <span v-if="isEditionMode">Editer</span>
         <span v-else>Ajouter</span>
       </button>
@@ -37,7 +37,7 @@ export default {
         if (!this.currentRoom.id) {
           await this.$store.dispatch('rooms/add', this.currentRoom);
         } else {
-          await this.$store.dispatch('rooms/add', this.currentRoom);
+          await this.$store.dispatch('rooms/edit', this.currentRoom);
         }
         this.reset();
       }
