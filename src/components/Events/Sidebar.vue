@@ -3,7 +3,7 @@
     <section>
       <h2 class="mb-2">Salles disponibles</h2>
       <div ref="drag" class="flex flex-wrap">
-        <div v-for="room in rooms" :key="room.id" class="room p-2 mb-2 bg-orange-600 cursor-move rounded w-1/4 mr-2" :style="{backgroundColor: room.color}" :data-event="JSON.stringify({ title: room.name, id: room.id, color: room.color, text: eventText, create: false })">
+        <div v-for="room in rooms" :key="room.id" class="room p-2 mb-2 bg-orange-600 cursor-move rounded w-1/4 mr-2" :style="{backgroundColor: room.color}" :data-event="JSON.stringify({ title: room.name, id: room.id, room: room.id, color: room.color, text: eventText, create: false })">
           <i>{{ room.name }}</i>
         </div>
         <div class="w-full mt-4">
