@@ -32,7 +32,7 @@ export default {
       this.$store.dispatch('events/edit', payload);
     },
     deleteEvent({ event }) {
-      const confirmed = window.confirm(`Are you sure you want to delete the event '${event.title}'?`);
+      const confirmed = window.confirm(`Veuillez confirmer la suppression de l'évènement : '${event.title}'?`);
       if (!confirmed) {
         return;
       }
@@ -40,8 +40,11 @@ export default {
     },
     handleDrop(arg) {
       const event = JSON.parse(arg.draggedEl.dataset.event);
+
+      const title = event.text ? `${event.title} - ${event.text}` : `${event.title}`;
+
       const payload = {
-        start: arg.dateStr, end: null, room: event.id, title: event.title, color: event.color,
+        start: arg.dateStr, end: null, room: event.id, title, color: event.color,
       };
 
       this.$store.dispatch('events/add', payload);
